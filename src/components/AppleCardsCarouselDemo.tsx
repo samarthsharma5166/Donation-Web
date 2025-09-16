@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { Carousel, Card } from "./ui/apple-cards-carousel";
-import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 
 export function AppleCardsCarouselDemo() {

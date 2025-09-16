@@ -6,17 +6,18 @@ import Header from "~/components/Header";
 import HeroSection from "~/components/HeroSection";
 import {  HydrateClient } from "~/trpc/server";
 
-export default async function Home({ searchParams }: { searchParams: { lang?: string | null} }) {
-
+type SearchParams = Promise<{ lang: string }>
+export default async function Home({ searchParams }: {searchParams: SearchParams}) {
+  const searchParam = await searchParams;
 
   return (
     <HydrateClient>
       <Header/>
       <HeroSection/>
       <FeatureSection/>
-      <AimSection searchParams={searchParams}/>
+      <AimSection searchParams={searchParam}/>
       <BlogsSection />
-      <Footer searchParams={searchParams}/>
+      <Footer searchParams={searchParam}/>
     </HydrateClient>
   );
 }

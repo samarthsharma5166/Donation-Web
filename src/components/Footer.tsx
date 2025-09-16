@@ -5,7 +5,10 @@ import { Button } from "./ui/button";
 import { Instagram, Facebook, Youtube } from "lucide-react";
 import Link from "next/link";
 
-const Footer = ({ searchParams }: { searchParams: { lang?: string | null } }) => {
+type FooterProps = {
+    searchParams?: Record<string, string | string[]>;
+};
+const Footer = ({ searchParams }: FooterProps ) => {
     const lang = searchParams?.lang === "hn" ? "hn" : "en";
 
     return (

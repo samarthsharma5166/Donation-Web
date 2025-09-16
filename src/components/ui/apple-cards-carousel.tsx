@@ -5,6 +5,7 @@ import React, {
   useState,
   createContext,
   useContext,
+  type JSX,
 } from "react";
 import {
   IconArrowNarrowLeft,
@@ -13,7 +14,7 @@ import {
 } from "@tabler/icons-react";
 import { cn } from "~/lib/utils";
 import { AnimatePresence, motion } from "motion/react";
-import Image, { ImageProps } from "next/image";
+import Image, { type ImageProps } from "next/image";
 import { useOutsideClick } from "~/hooks/use-outside-click";
 
 interface CarouselProps {
@@ -121,7 +122,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
                     duration: 0.5,
                     delay: 0.2 * index,
                     ease: "easeOut",
-                    once: true,
+                    // once: true,
                   },
                 }}
                 key={"card" + index}
@@ -183,7 +184,7 @@ export const Card = ({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
-  useOutsideClick(containerRef, () => handleClose());
+  useOutsideClick(containerRef as React.RefObject<HTMLDivElement>, () => handleClose());
 
   const handleOpen = () => {
     setOpen(true);

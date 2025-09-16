@@ -110,8 +110,12 @@ const content = {
     ],
 };
 
-const AimSection = ({ searchParams }: { searchParams: { lang?: string | null} }) => {
-    const lang = searchParams?.lang === "hn" ? "hn" : "en";
+type AimSectionProps = {
+    searchParams?: Record<string, string | string[]>;
+};
+
+const AimSection = async({ searchParams }: AimSectionProps) => {
+    const lang = ( searchParams)?.lang === "hn" ? "hn" : "en";
 
     return (
         <div className="container p-4 sm:p-0 mx-auto py-12 ">
