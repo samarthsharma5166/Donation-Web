@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import { Instagram, Facebook, Youtube } from "lucide-react";
 import Link from "next/link";
 
-const Footer = ({ searchParams }: { searchParams: { lang?: string } }) => {
+const Footer = ({ searchParams }: { searchParams: { lang?: string | null } }) => {
     const lang = searchParams?.lang === "hn" ? "hn" : "en";
 
     return (

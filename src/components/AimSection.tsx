@@ -110,7 +110,7 @@ const content = {
     ],
 };
 
-const AimSection = ({ searchParams }: { searchParams: { lang?: string } }) => {
+const AimSection = ({ searchParams }: { searchParams: { lang?: string | null} }) => {
     const lang = searchParams?.lang === "hn" ? "hn" : "en";
 
     return (
